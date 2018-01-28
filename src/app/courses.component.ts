@@ -12,13 +12,15 @@ import { CoursesService } from './courses.service';
 })
 
 export class CoursesComponent {
-    title = 'Apen - Courses';
+    title = 'List of courses';
     courses;
+    // constructor(service: CoursesService) {
+    //     this.courses = service.getCourses()
+    // }
     constructor() {
-        let service = new CoursesService();
+        let service = new CoursesService;
         this.courses = service.getCourses()
     }
-
     getTitle() {
         return this.title
     }
