@@ -7,7 +7,8 @@ import { CoursesService } from './courses.service';
         <button
             class="btn btn-primary"
             [class.active]="isActive"
-            [style.backgroundColor]="isActive ? 'blue' : 'red'">Save</button>
+            [style.backgroundColor]="isActive ? 'blue' : 'red'"
+            (click)="onSave($event)">Save</button>
         <h2>{{ "Title: " + getTitle() }}</h2>
         <ul>
             <li *ngFor="let course of courses">{{ course }}</li>
@@ -32,5 +33,8 @@ export class CoursesComponent {
     }
     getTitle() {
         return this.title
+    }
+    onSave($event) {
+        console.log(`click: ${$event}`)
     }
 }
