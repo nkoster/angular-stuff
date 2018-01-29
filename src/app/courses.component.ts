@@ -4,7 +4,7 @@ import { CoursesService } from './courses.service';
 @Component({
     selector: 'courses',
     template: `
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" [class.active]="isActive">Save</button>
         <h2>{{ "Title: " + getTitle() }}</h2>
         <ul>
             <li *ngFor="let course of courses">{{ course }}</li>
@@ -19,6 +19,7 @@ import { CoursesService } from './courses.service';
 })
 
 export class CoursesComponent {
+    isActive = false;
     title = 'List of courses';
     imageUrl = 'http://lorempixel.com/400/200';
     courses;
