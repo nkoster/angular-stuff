@@ -4,11 +4,13 @@ import { CoursesService } from './courses.service';
 @Component({
     selector: 'courses',
     template: `
-        <button
-            class="btn btn-primary"
-            [class.active]="isActive"
-            [style.backgroundColor]="isActive ? 'blue' : 'red'"
-            (click)="onSave($event)">Save</button>
+        <div (click)="onDivClick()">
+            <button
+                class="btn btn-primary"
+                [class.active]="isActive"
+                [style.backgroundColor]="isActive ? 'blue' : 'red'"
+                (click)="onSave($event)">Save</button>
+        </div>
         <h2>{{ "Title: " + getTitle() }}</h2>
         <ul>
             <li *ngFor="let course of courses">{{ course }}</li>
@@ -35,6 +37,10 @@ export class CoursesComponent {
         return this.title
     }
     onSave($event) {
-        console.log(`click: ${$event}`)
+        $event.stopPropagation();
+        console.log(`click: ${$event.clientX}`)
+    }
+    onDivClick() {
+        console.log('DIV click')
     }
 }
