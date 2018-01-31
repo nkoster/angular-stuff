@@ -21,7 +21,7 @@ import { CoursesService } from './courses.service';
                 <td [attr.colspan]="colSpan">aap</td>
             </tr>
         </table>
-        <input (keyup.enter)="onKeyUp($event)" />
+        <input #email (keyup.enter)="onKeyUp(email.value)" />
     `
 })
 
@@ -44,7 +44,7 @@ export class CoursesComponent {
     onDivClick() {
         console.log('DIV click')
     }
-    onKeyUp($event) {
-        this.title = $event.target.value;
+    onKeyUp(email) {
+        this.title = email;
     }
 }
