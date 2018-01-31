@@ -24,10 +24,14 @@ import { CoursesService } from './courses.service';
             </tr>
         </table>
         <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+        <p>{{ text | summary:'30' }}</p>
     `
 })
 
 export class CoursesComponent {
+    text = `
+        this is a very long text because it has to be a very long text otherwise I cannot use this as a test.
+    `
     isActive = true;
     title = 'List of courses';
     imageUrl = 'http://lorempixel.com/400/200';
