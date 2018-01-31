@@ -21,7 +21,7 @@ import { CoursesService } from './courses.service';
                 <td [attr.colspan]="colSpan">aap</td>
             </tr>
         </table>
-        <input #email (keyup.enter)="onKeyUp(email.value)" />
+        <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
     `
 })
 
@@ -44,7 +44,8 @@ export class CoursesComponent {
     onDivClick() {
         console.log('DIV click')
     }
-    onKeyUp(email) {
-        this.title = email;
+    email = 'aap@noot.com';
+    onKeyUp() {
+        this.title = this.email;
     }
 }
