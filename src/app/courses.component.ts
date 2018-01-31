@@ -21,7 +21,7 @@ import { CoursesService } from './courses.service';
                 <td [attr.colspan]="colSpan">aap</td>
             </tr>
         </table>
-        <input (keyup)="onKeyUp($event)" />
+        <input (keyup.enter)="onKeyUp()" />
     `
 })
 
@@ -44,10 +44,8 @@ export class CoursesComponent {
     onDivClick() {
         console.log('DIV click')
     }
-    onKeyUp($event) {
-        if ($event.keyCode === 13) {
-            this.title = 'ENTER';
-            console.log('ENTER')
-        }
+    onKeyUp() {
+        this.title = 'ENTER';
+        console.log('ENTER')
     }
 }
