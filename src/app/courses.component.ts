@@ -11,9 +11,11 @@ import { CoursesService } from './courses.service';
                 [style.backgroundColor]="isActive ? 'blue' : 'red'"
                 (click)="onSave($event)">Save</button>
         </div>
-        <h2>{{ "Title: " + getTitle() }}</h2>
+        <h2>{{ title | uppercase }}</h2>
+        <div>{{ timeStamp | date:'yyyy-MM-dd HH:mm' }}</div>
         <ul>
-            <li *ngFor="let course of courses">{{ course }}</li>
+            <li *ngFor="let course of courses">{{ course }}
+             {{ price | currency:'EUR':true }}</li>
         </ul>
         <img [src]="imageUrl" />
         <table>
@@ -21,7 +23,7 @@ import { CoursesService } from './courses.service';
                 <td [attr.colspan]="colSpan">aap</td>
             </tr>
         </table>
-        <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
+        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
     `
 })
 
@@ -30,6 +32,8 @@ export class CoursesComponent {
     title = 'List of courses';
     imageUrl = 'http://lorempixel.com/400/200';
     courses;
+    price = 21.5;
+    timeStamp = new Date();
     colSpan = 2;
     constructor(service: CoursesService) {
         this.courses = service.getCourses()
