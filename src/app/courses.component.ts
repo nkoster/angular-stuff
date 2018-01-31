@@ -24,7 +24,7 @@ import { CoursesService } from './courses.service';
             </tr>
         </table>
         <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
-        <p>{{ text | summary:'30' }}</p>
+        <p>{{ text | summary:1 }}</p>
     `
 })
 
