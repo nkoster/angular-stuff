@@ -9,10 +9,12 @@ export class TitleCasePipe implements PipeTransform {
     if (!value) return null;
     let words = value.split(' ');
     for (var i = 0; i < words.length; i++) {
-      if (i > 0 && this.ifPreposition(words[i]))
-        words[i] = words[i].toLowerCase()
+      let word = words[i];
+      if (i > 0 && this.ifPreposition(word))
+        word = word.toLowerCase()
       else
-        words[i] = this.toTitleCase(words[i])
+        word = this.toTitleCase(word);
+      words[i] = word
     }
     return words.join(' ');
   }
