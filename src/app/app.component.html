@@ -3,4 +3,4 @@
 {{ title | titleCase }}
 
 <favorite [isFavorite]="post.isFavorite"
- (change)="onFavoriteChanged()"></favorite>
+ (change)="onFavoriteChanged($event)"></favorite>
