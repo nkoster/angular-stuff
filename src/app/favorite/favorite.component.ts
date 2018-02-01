@@ -3,7 +3,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html',
-  styleUrls: ['./favorite.component.css']
+  styleUrls: ['./favorite.component.css'],
+  styles: [
+    `
+      .glyphicon {
+        color: green
+      }
+    `
+  ]
 })
 export class FavoriteComponent implements OnInit {
   @Input() isFavorite: boolean;
