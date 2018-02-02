@@ -12,9 +12,10 @@
     [isActive]="tweet.isLiked"
 ></app-like>
 
-<div *ngIf="courses.length > 0">
+<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
     {{ courses }}
-</div>
-<div *ngIf="courses.length == 0">
+</ng-template>
+<ng-template #noCourses>
     No courses yet
-</div>
+</ng-template>
