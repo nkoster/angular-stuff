@@ -11,3 +11,10 @@
     [likesCount]="tweet.likesCount"
     [isActive]="tweet.isLiked"
 ></app-like>
+
+<div *ngIf="courses.length > 0">
+    {{ courses }}
+</div>
+<div *ngIf="courses.length == 0">
+    No courses yet
+</div>
