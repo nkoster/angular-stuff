@@ -18,6 +18,7 @@ export class AppComponent {
     isLiked: true
   }
   courses = [];
+  viewMode = 'list';
   onFavoriteChanged(eventArgs: onFavoriteChangedEventArgs) {
     console.log('Favorite changed: ' + eventArgs.newValue)
   }
