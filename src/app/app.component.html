@@ -33,3 +33,9 @@
     <div *ngSwitchCase="'list'">List view content</div>
     <div *ngSwitchDefault>default...</div>
 </div>
+<ul>
+    <li *ngFor="let course of courses; index as i; even as e">
+        <span [class.even]="!e">{{ i }} - {{ course.name }}</span>
+        <span *ngIf="e">(hi!)</span>
+    </li>
+</ul>

@@ -17,7 +17,12 @@ export class AppComponent {
     likesCount: 10,
     isLiked: true
   }
-  courses = [];
+  courses = [
+    { id: 0, name: 'Intro'},
+    { id: 1, name: 'Course A'},
+    { id: 2, name: 'Course B'},
+    { id: 3, name: 'Course C'}
+  ];
   viewMode = 'list';
   onFavoriteChanged(eventArgs: onFavoriteChangedEventArgs) {
     console.log('Favorite changed: ' + eventArgs.newValue)

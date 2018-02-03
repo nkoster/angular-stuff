@@ -6,3 +6,7 @@
 body {
     padding: 20px;
 }
+
+.even {
+    background: #fee;
+}
