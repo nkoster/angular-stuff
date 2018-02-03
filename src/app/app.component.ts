@@ -17,14 +17,27 @@ export class AppComponent {
     likesCount: 10,
     isLiked: true
   }
-  courses = [
-    { id: 0, name: 'Intro'},
-    { id: 1, name: 'Course A'},
-    { id: 2, name: 'Course B'},
-    { id: 3, name: 'Course C'}
-  ];
+  courses;
   viewMode = 'list';
   onFavoriteChanged(eventArgs: onFavoriteChangedEventArgs) {
     console.log('Favorite changed: ' + eventArgs.newValue)
+  }
+  onAdd() {
+    this.courses.push({ id: 5, name: 'Course D'})
+  }
+  onRemove(course) {
+    let index = this.courses.indexOf(course);
+    this.courses.splice(index, 1)
+  }
+  loadCourses() {
+    this.courses = [
+      { id: 0, name: 'Intro'},
+      { id: 1, name: 'Course A'},
+      { id: 2, name: 'Course B'},
+      { id: 3, name: 'Course C'}
+    ]
+  }
+  trackCourse(index, course) {
+    return course ? course.id : undefined
   }
 }
