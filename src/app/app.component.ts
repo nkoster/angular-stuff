@@ -17,8 +17,12 @@ export class AppComponent {
     likesCount: 10,
     isLiked: true
   }
-  courses;
+  courses = [];
   viewMode = 'list';
+  task = {
+    title: 'review app',
+    assignee: null
+  }
   onFavoriteChanged(eventArgs: onFavoriteChangedEventArgs) {
     console.log('Favorite changed: ' + eventArgs.newValue)
   }
