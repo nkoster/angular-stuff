@@ -44,4 +44,12 @@ export class AppComponent {
   trackCourse(index, course) {
     return course ? course.id : undefined
   }
+  case: string = 'lowercase';
+  switchCase() {
+    if (this.case == 'uppercase') {
+      this.case = 'lowercase'
+    } else {
+      this.case = 'uppercase' 
+    }
+  }
 }

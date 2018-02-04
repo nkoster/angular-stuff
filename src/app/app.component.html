@@ -13,7 +13,7 @@
 ></app-like>
 
 <div [hidden]="courses.length == 0">
-    {{ courses }}
+    {{ courses.length }}
 </div>
 <div [hidden]="courses.length > 0">
     No courses yet
@@ -42,4 +42,5 @@
     </li>
 </ul>
 <button (click)="loadCourses()">Load Courses</button>
-<span>{{ task.assignee?.name }}</span>
+<span>{{ task.assignee?.name }}</span><br>
+<input type="text" appInputFormat [format]="case"><button (click)="switchCase()">{{case}}</button>
