@@ -1,5 +1,6 @@
-<h1>Hello, World</h1>
+<contact-form></contact-form>
 
+<p></p>
 <input type="text" [(ngModel)]="title"/>
 <br>
 {{ title | titleCase }}
@@ -46,3 +47,9 @@
 <input type="text" [appInputFormat]="case">
 <!-- <input type="text" appInputFormat [format]="case"> -->
 <button (click)="switchCase()">{{case}}</button>
+<zippy zippy-title="Shipping Details">
+    Shipping details content
+</zippy>
+<zippy zippy-title="Billing Details">
+    Billing details contents
+</zippy>

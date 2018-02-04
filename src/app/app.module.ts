@@ -10,6 +10,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './title-case.pipe';
 import { LikeComponent } from './like/like.component';
 import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { InputFormatDirective } from './input-format.directive';
       FavoriteComponent,
       TitleCasePipe,
       LikeComponent,
-      InputFormatDirective
+      InputFormatDirective,
+      ZippyComponent,
+      ContactFormComponent
     ],
     imports: [
       BrowserModule,
