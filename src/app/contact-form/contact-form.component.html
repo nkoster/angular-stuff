@@ -32,6 +32,9 @@
         ngModel name="comment" type="text" cols="30" rows="10"
         id="comment" class="form-control"></textarea>
       <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+      <p>
+        {{ f.value | json }}
+      </p>
     </div>
   </div>
 </form>
