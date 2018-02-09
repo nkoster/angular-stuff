@@ -32,6 +32,12 @@
         ngModel name="comment" type="text" cols="30" rows="10"
         id="comment" class="form-control"></textarea>
       <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ngModel name="subscribed"> Subscripe to mailing list
+          <span class="box"></span>
+        </label>
+      </div>
       <p>
         {{ f.value | json }}
       </p>
