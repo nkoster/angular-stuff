@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'contact-form',
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.css']
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  contactMethods = [
+    { id: 0, name: 'Email' },
+    { id: 1, name: 'Phone' },
+    { id: 2, name: 'Whatsapp' },
+  ];
 
   log(value) {
     console.log(value)
