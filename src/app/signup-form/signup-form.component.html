@@ -6,22 +6,13 @@
             id="username"
             type="text" 
             class="form-control">
+        <div *ngIf="username.pending">Checking for uniqueness...</div>
         <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
-            <div *ngIf="username.errors.required">
-                Username is required.
-            </div>
-            <div *ngIf="username.errors.minlength">
-                Minimal length is {{ username.errors.minlength.requiredLength }} characters
-            </div>
-            <div *ngIf="username.errors.cannotBeShorterThanTwo">
-                Minimal length is two characters
-            </div>
-            <div *ngIf="username.errors.cannotContainSpaces">
-                Cannot contain spaces.
-            </div>
-            <div *ngIf="username.errors.shouldBeUnique">
-                Should be unique.
-            </div>
+            <div *ngIf="username.errors.required">Username is required.</div>
+            <div *ngIf="username.errors.minlength">Minimal {{ username.errors.minlength.requiredLength }} characters</div>
+            <div *ngIf="username.errors.cannotBeShorterThanTwo">Minimal two characters</div>
+            <div *ngIf="username.errors.cannotContainSpaces">Cannot contain spaces.</div>
+            <div *ngIf="username.errors.shouldBeUnique">Should be unique.</div>
         </div>
     </div>
     <div class="form-group">
