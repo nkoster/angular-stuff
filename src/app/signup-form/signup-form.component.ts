@@ -19,7 +19,20 @@ export class SignupFormComponent {
     ], UsernameValidators.shouldBeUnique
   ),
     password: new FormControl('', Validators.required)
-  })
+  });
+
+  login() {
+    // let isValid = new someAuthService.login(this.form.value);
+    // if (!isValid) {
+    //   this.form.setErrors({
+    //     inValidLogin: true
+    //   })
+    // }
+      this.form.setErrors({
+        inValidLogin: true
+      })
+    console.log(this.form.value)
+  }
 
   get username() {
     return this.form.get('username')
