@@ -32,6 +32,17 @@ export class PostsComponent implements OnInit {
       })
   }
 
+  updatePost(post) {
+    // update only a part of an object
+    this.http.patch(this.url + '/' + post.id, JSON.stringify({
+      isRead: true
+    })).subscribe(response => {
+      console.log(`response=${response.json()}`)
+    })
+    // whole object
+    //this.http.put(this.url, JSON.stringify(post))
+  }
+
   ngOnInit() {
   }
 
