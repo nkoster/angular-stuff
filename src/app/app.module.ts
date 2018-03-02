@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
-import { CoursesService } from './courses.service';
+import { CoursesService } from './services/courses.service';
+import { PostService } from './services/post.service';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './title-case.pipe';
@@ -42,6 +43,7 @@ import { HttpModule } from '@angular/http';
       HttpModule
     ],
     providers: [
+      PostService,
       CoursesService
     ],
     bootstrap: [AppComponent]
