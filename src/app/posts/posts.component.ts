@@ -19,8 +19,12 @@ export class PostsComponent implements OnInit {
       response => {
         this.posts = response.json()
       },
-      error => {
-        console.error(error)
+      (error: Response) => {
+        if (error.status === 404) {
+          alert('Post already deleted')
+        } else {
+          alert('Unexpected error')
+        }
       }
     )
   }
@@ -37,8 +41,14 @@ export class PostsComponent implements OnInit {
       this.posts.splice(0, 0, post);
       //console.log(response.json())
       },
-      error => {
-        console.error(error)
+      (error: Response) => {
+        if (error.status === 400) {
+          //this.form.setErrors(error.json())
+        } else {
+          alert('Unexpected error');
+          console.error(error)
+        }
+
       }
     )
   }
@@ -65,8 +75,13 @@ export class PostsComponent implements OnInit {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1)
       },
-      error => {
-        console.error(error)
+      (error: Response) => {
+        if (error.status === 404)
+          alert('Already deleted')
+        else {
+          alert('Unexpected error');
+          console.error(`Error: ${error.status}`)
+        }
       }
     )
   }
