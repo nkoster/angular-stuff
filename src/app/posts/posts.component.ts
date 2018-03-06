@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { Error } from '../common/error';
+import { NotFoundError } from '../common/error-not-found';
+import { BadRequestError } from '../common/error-bad-input';
 
 @Component({
   selector: 'posts',
@@ -41,12 +44,12 @@ export class PostsComponent implements OnInit {
       this.posts.splice(0, 0, post);
       //console.log(response.json())
       },
-      (error: Response) => {
-        if (error.status === 400) {
+      (error: Error) => {
+        if (error instanceof BadRequestError) {
           //this.form.setErrors(error.json())
         } else {
           alert('Unexpected error');
-          console.error(error)
+          console.error('aap')
         }
 
       }
@@ -75,12 +78,11 @@ export class PostsComponent implements OnInit {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1)
       },
-      (error: Response) => {
-        if (error.status === 404)
+      (error: Error) => {
+        if (error instanceof NotFoundError)
           alert('Already deleted')
         else {
-          alert('Unexpected error');
-          console.error(`Error: ${error.status}`)
+          alert('Unexpected error')
         }
       }
     )
