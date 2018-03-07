@@ -18,6 +18,8 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpModule } from '@angular/http';
+import { ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './common/error-handler';
 
 @NgModule({
     declarations: [
@@ -44,7 +46,8 @@ import { HttpModule } from '@angular/http';
     ],
     providers: [
       PostService,
-      CoursesService
+      CoursesService,
+      { provide: ErrorHandler, useClass: AppErrorHandler }
     ],
     bootstrap: [AppComponent]
   })

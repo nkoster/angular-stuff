@@ -21,17 +21,10 @@ export class PostsComponent implements OnInit {
     .subscribe(
       response => {
         this.posts = response.json()
-      },
-      (error: Response) => {
-        if (error.status === 404) {
-          alert('Post already deleted')
-        } else {
-          alert('Unexpected error')
-        }
       }
     )
   }
-  
+
   createPost(input: HTMLInputElement) {
     let post = { title: input.value }
     input.value = '';
@@ -47,11 +40,7 @@ export class PostsComponent implements OnInit {
       (error: Error) => {
         if (error instanceof BadRequestError) {
           //this.form.setErrors(error.json())
-        } else {
-          alert('Unexpected error');
-          console.error('aap')
-        }
-
+        } else throw error
       }
     )
   }
@@ -62,9 +51,6 @@ export class PostsComponent implements OnInit {
     .subscribe(
       response => {
         console.log(`response=${response.json()}`)
-      },
-      error => {
-        console.error(error)
       }
     )
     // whole object
@@ -81,9 +67,7 @@ export class PostsComponent implements OnInit {
       (error: Error) => {
         if (error instanceof NotFoundError)
           alert('Already deleted')
-        else {
-          alert('Unexpected error')
-        }
+        else throw error
       }
     )
   }
