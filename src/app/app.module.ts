@@ -6,6 +6,7 @@ import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import { CoursesService } from './services/courses.service';
 import { PostService } from './services/post.service';
+import { DataService } from './services/data.service';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './title-case.pipe';
@@ -45,6 +46,7 @@ import { AppErrorHandler } from './common/error-handler';
       HttpModule
     ],
     providers: [
+      DataService,
       PostService,
       CoursesService,
       { provide: ErrorHandler, useClass: AppErrorHandler }
