@@ -18,11 +18,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAll()
-    .subscribe(
-      response => {
-        this.posts = response.json()
-      }
-    )
+    .subscribe(posts => this.posts = posts)
   }
 
   createPost(input: HTMLInputElement) {
@@ -30,10 +26,10 @@ export class PostsComponent implements OnInit {
     input.value = '';
     this.service.create(post)
     .subscribe(
-      response => {
+      newPost => {
       // square brackets since post is not of type :any
       // which is an alternative way
-      post['id'] = response.json().id;
+      post['id'] = newPost.id;
       this.posts.splice(0, 0, post);
       //console.log(response.json())
       },
@@ -49,8 +45,8 @@ export class PostsComponent implements OnInit {
     // update only a part of an object
     this.service.update(post.id)
     .subscribe(
-      response => {
-        console.log(`response=${response.json()}`)
+      updatedPost => {
+        console.log(`Updated post is: ${updatedPost}`)
       }
     )
     // whole object
@@ -60,7 +56,7 @@ export class PostsComponent implements OnInit {
   deletePost(post) {
     this.service.delete(post.id)
     .subscribe(
-      response => {
+      () => {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1)
       },
