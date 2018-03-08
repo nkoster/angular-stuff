@@ -21,6 +21,7 @@ export class DataService {
 
   create(resource) {
     //error.status === 400
+    //return Observable.throw(new Error);
     return this.http.post(this.url, JSON.stringify(resource))
     .map(response => response.json())
     .catch(this.handleError)
