@@ -4,9 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
-import { CoursesService } from './services/courses.service';
-import { PostService } from './services/post.service';
-import { DataService } from './services/data.service';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './title-case.pipe';
@@ -21,6 +18,12 @@ import { PostsComponent } from './posts/posts.component';
 import { HttpModule } from '@angular/http';
 import { ErrorHandler } from '@angular/core';
 import { AppErrorHandler } from './common/error-handler';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+
+import { CoursesService } from './services/courses.service';
+import { PostService } from './services/post.service';
+import { DataService } from './services/data.service';
+import { GithubFollowersService } from './services/github-followers.service';
 
 @NgModule({
     declarations: [
@@ -37,7 +40,8 @@ import { AppErrorHandler } from './common/error-handler';
       SignupFormComponent,
       NewCourseFormComponent,
       ChangePasswordComponent,
-      PostsComponent
+      PostsComponent,
+      GithubFollowersComponent
     ],
     imports: [
       BrowserModule,
@@ -49,6 +53,7 @@ import { AppErrorHandler } from './common/error-handler';
       DataService,
       PostService,
       CoursesService,
+      GithubFollowersService,
       { provide: ErrorHandler, useClass: AppErrorHandler }
     ],
     bootstrap: [AppComponent]
