@@ -28,6 +28,9 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 
+import { RouterModule } from '@angular/router';
+import { NotfoundComponent } from './notfound/notfound.component';
+
 @NgModule({
     declarations: [
       AppComponent,
@@ -47,13 +50,36 @@ import { HomeComponent } from './home/home.component';
       GithubFollowersComponent,
       GithubProfileComponent,
       NavbarComponent,
-      HomeComponent
+      HomeComponent,
+      NotfoundComponent
     ],
     imports: [
       BrowserModule,
       FormsModule,
       ReactiveFormsModule,
-      HttpModule
+      HttpModule,
+      RouterModule.forRoot([
+        {
+          path: '',
+          component: HomeComponent
+        },
+        {
+          path: 'followers',
+          component: GithubFollowersComponent
+        },
+        {
+          path: 'profile/:username',
+          component: GithubProfileComponent
+        },
+        {
+          path: 'posts',
+          component: PostsComponent
+        },
+        {
+          path: '**',
+          component: PostsComponent
+        },
+      ])
     ],
     providers: [
       DataService,
