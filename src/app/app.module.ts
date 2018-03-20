@@ -49,7 +49,8 @@ import { RouterModule } from '@angular/router';
       GithubFollowersComponent,
       GithubProfileComponent,
       NavbarComponent,
-      HomeComponent
+      HomeComponent,
+      NotFoundComponent
     ],
     imports: [
       BrowserModule,
