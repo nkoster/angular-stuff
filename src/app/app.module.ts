@@ -24,6 +24,9 @@ import { CoursesService } from './services/courses.service';
 import { PostService } from './services/post.service';
 import { DataService } from './services/data.service';
 import { GithubFollowersService } from './services/github-followers.service';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +44,10 @@ import { GithubFollowersService } from './services/github-followers.service';
       NewCourseFormComponent,
       ChangePasswordComponent,
       PostsComponent,
-      GithubFollowersComponent
+      GithubFollowersComponent,
+      GithubProfileComponent,
+      NavbarComponent,
+      HomeComponent
     ],
     imports: [
       BrowserModule,
