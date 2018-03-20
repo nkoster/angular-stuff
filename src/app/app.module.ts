@@ -27,9 +27,8 @@ import { GithubFollowersService } from './services/github-followers.service';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-
+import { NotFoundComponent } from './notfound/notfound.component';
 import { RouterModule } from '@angular/router';
-import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
     declarations: [
@@ -50,8 +49,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
       GithubFollowersComponent,
       GithubProfileComponent,
       NavbarComponent,
-      HomeComponent,
-      NotfoundComponent
+      HomeComponent
     ],
     imports: [
       BrowserModule,
@@ -64,12 +62,12 @@ import { NotfoundComponent } from './notfound/notfound.component';
           component: HomeComponent
         },
         {
-          path: 'followers',
-          component: GithubFollowersComponent
+          path: 'followers/:username',
+          component: GithubProfileComponent
         },
         {
-          path: 'profile/:username',
-          component: GithubProfileComponent
+          path: 'followers',
+          component: GithubFollowersComponent
         },
         {
           path: 'posts',
@@ -77,7 +75,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
         },
         {
           path: '**',
-          component: PostsComponent
+          component: NotFoundComponent
         },
       ])
     ],
