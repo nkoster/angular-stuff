@@ -63,7 +63,7 @@ import { RouterModule } from '@angular/router';
           component: HomeComponent
         },
         {
-          path: 'followers/:id',
+          path: 'followers/:id/:username',
           component: GithubProfileComponent
         },
         {
