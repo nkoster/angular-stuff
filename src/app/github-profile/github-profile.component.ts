@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GithubFollowersService } from '../services/github-followers.service';
 
 @Component({
   selector: 'github-profile',
@@ -8,9 +9,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GithubProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private service: GithubFollowersService
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap
+    .subscribe(params => {
+
+    })
+    //let id = this.route.snapshot.paramMap.get('id');
+    this.route.queryParamMap
+    .subscribe(params => {
+      
+    })
+    //let page = this.route.snapshot.queryParamMap.get('page');
     console.log('snapshot ' + this.route.snapshot.paramMap.get('id'));
     this.route.paramMap.subscribe(params => {
       console.log('observable ' + +params.get('id'))
