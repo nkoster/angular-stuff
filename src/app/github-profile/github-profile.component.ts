@@ -15,15 +15,6 @@ export class GithubProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.paramMap
-    .subscribe(params => {
-
-    })
-    //let id = this.route.snapshot.paramMap.get('id');
-    this.route.queryParamMap
-    .subscribe(params => {
-      
-    })
     //let page = this.route.snapshot.queryParamMap.get('page');
     console.log('snapshot ' + this.route.snapshot.paramMap.get('id'));
     this.route.paramMap.subscribe(params => {
