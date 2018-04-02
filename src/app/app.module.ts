@@ -65,6 +65,9 @@ import { ArchiveComponent } from './archive/archive.component';
           component: HomeComponent
         },
         {
+          path: 'archive/:year/:month', component: ArchiveComponent
+        },
+        {
           path: 'followers/:id/:username',
           component: GithubProfileComponent
         },
