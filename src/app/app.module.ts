@@ -29,6 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './notfound/notfound.component';
 import { RouterModule } from '@angular/router';
+import { ArchiveComponent } from './archive/archive.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +51,8 @@ import { RouterModule } from '@angular/router';
       GithubProfileComponent,
       NavbarComponent,
       HomeComponent,
-      NotFoundComponent
+      NotFoundComponent,
+      ArchiveComponent
     ],
     imports: [
       BrowserModule,
